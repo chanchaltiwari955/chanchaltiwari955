@@ -1,0 +1,17 @@
+name: demo
+type: theme
+description: 'demo subtheme based on Bootstrap 5 theme.'
+core_version_requirement: '^8.9 || ^9'
+'base theme': bootstrap5
+libraries:
+  - demo/global-styling
+stylesheets-remove:
+  - '@bootstrap5/css/style.css'
+regions:
+  header: Header
+  nav_main: 'Main navigation region'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third' 
+  footer_fourth: 'Footer Fourth'
+  footer: 'footer'
