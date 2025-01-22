@@ -8,3 +8,4 @@ check this checkbox [Include invalid paths alias as plain-text segments] for add
 because breadcrumb is updated according to url of the nodes.
 
 View
+Module for expose filter when user search the title so automatically suggest title this module. Module name is Views Autocomplete Filters(views_autocomplete_filters)
