@@ -9,3 +9,6 @@ because breadcrumb is updated according to url of the nodes.
 
 View
 Module for expose filter when user search the title so automatically suggest title this module. Module name is Views Autocomplete Filters(views_autocomplete_filters)
+Multiselect Dropdowns for Better Exposed Filters(multiselect_dropdown_bef) module use for multiselect dropdown with checkbox
+In drupal view if you need to pass node url so linke to content field and exclude from display and use token in rewrite results for other fields.
+And if you need to add any pdf field url to content in view so add pdf field in relationship filter and add in fields also so we can use this field as a token.
