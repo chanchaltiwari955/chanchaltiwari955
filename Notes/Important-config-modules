@@ -1,4 +1,10 @@
 Language translation dropdown option
 Language switcher module-> Dropdown Language(dropdown_language)
 Language translation modules:- Configuration Translation(config_translation), Interface Translation(locale), Content Translation(content_translation), Language
+For adding content, paragraph, taxonomy, content block, URL alias, menu and other translation URL(/web/admin/config/regional/content-language)
 
+For Breadcrumb use easy breadcrumb module and add configuration(/web/admin/config/user-interface/easy-breadcrumb)
+check this checkbox [Include invalid paths alias as plain-text segments] for add Home>Content-type-name>Node-title and add URL alias(/web/admin/config/search/path) Pattern with tokens for breadcrumb requirement
+because breadcrumb is updated according to url of the nodes.
+
+View
