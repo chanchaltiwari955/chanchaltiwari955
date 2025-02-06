@@ -1,0 +1,115 @@
+Sollution 1
+<!-- Anchor tag to open the Webform dialog -->
+<a class="webform-dialog button" href="javascript:void(0);" id="open-webform-dialog">Test Custom</a>
+
+<!-- Add the JavaScript in the theme or custom module -->
+<script>
+(function($) {
+  $(document).ready(function() {
+    // Handle the click event on the anchor tag
+    $('#open-webform-dialog').click(function(e) {
+      e.preventDefault();  // Prevent default anchor behavior
+
+      // Webform dialog options
+      var dialogOptions = {
+        width: 400,
+        height: 400,
+        // Positioning the dialog at the bottom of the page
+        position: {
+          my: "bottom",  // Position the dialog at the bottom
+          at: "bottom",  // Position the dialog at the bottom
+          of: window     // Relative to the window
+        }
+      };
+
+      // Open the Webform dialog
+      Drupal.dialog('/demo/web/form/test', dialogOptions).show();
+    });
+  });
+})(jQuery);
+</script>
+
+Solution 2
+(function($) {
+  $(document).ready(function() {
+    $('#open-webform-dialog').click(function(e) {
+      e.preventDefault();  // Prevent default anchor behavior (scrolling)
+
+      // Webform dialog options
+      var dialogOptions = {
+        width: 400,
+        height: 400,
+        // Positioning dynamically based on window scroll
+        position: {
+          my: "center",  // Always center the dialog horizontally
+          at: "center",  // Center it on the page
+          of: window     // Relative to the window
+        }
+      };
+
+      // Open the Webform dialog
+      var webformDialog = Drupal.dialog('/demo/web/form/test', dialogOptions);
+
+      // Show the dialog
+      webformDialog.show();
+
+      // Manually set the dialog position to be either top or bottom
+      $(window).on('resize', function() {
+        if ($(window).scrollTop() < $(document).height() - $(window).height() - 100) {
+          // Position dialog at the bottom of the page
+          webformDialog.css('top', $(window).height() - webformDialog.height() - 10);
+        } else {
+          // Position dialog at the top of the page
+          webformDialog.css('top', '10px');
+        }
+      });
+
+      // Initial check for dialog position
+      if ($(window).scrollTop() < $(document).height() - $(window).height() - 100) {
+        webformDialog.css('top', $(window).height() - webformDialog.height() - 10);
+      } else {
+        webformDialog.css('top', '10px');
+      }
+    });
+  });
+})(jQuery);
+
+Solution 3
+<a class="webform-dialog button" href="javascript:void(0);" id="open-webform-dialog">Test Custom</a>
+(function($) {
+  $(document).ready(function() {
+    // Click event on the anchor tag to open the Webform popup
+    $('#open-webform-dialog').click(function(e) {
+      e.preventDefault();  // Prevent default behavior (scrolling to top)
+      
+      // Open the Webform dialog without any page scrolling
+      var dialogOptions = {
+        width: 400,
+        height: 400,
+        // Fixed position: top or bottom (for now, it will open in the center of the screen)
+        position: {
+          my: "center",  // Center the dialog on the screen
+          at: "center",  // Center the dialog on the screen
+          of: window     // Relative to the window
+        }
+      };
+
+      // Open the dialog (Webform modal)
+      var webformDialog = Drupal.dialog('/demo/web/form/test', dialogOptions);
+
+      // Show the dialog immediately without scroll
+      webformDialog.show();
+
+      // Optionally: Manually adjust the position (top or bottom) based on where you want it
+      if ($(window).scrollTop() < $(document).height() - $(window).height() - 100) {
+        // Position dialog at the bottom if near bottom of the page
+        webformDialog.css('top', $(window).height() - webformDialog.height() - 10);
+      } else {
+        // Otherwise, position at the top
+        webformDialog.css('top', '10px');
+      }
+    });
+  });
+})(jQuery);
+
+Solution 4
