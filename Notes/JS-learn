@@ -1,0 +1,136 @@
+JavaScript Learn
+JavaScript Basics & Syntax
+Day 1: Introduction to JavaScript
+Practice Task: Write your first "Hello, World!" program.
+In the browser console, write: console.log('Hello, World!').
+Day 2: Variables & Data Types
+Practice Task: Create variables of different types (string, number, boolean) and output them in the console.
+Example: let name = 'Alice'; let age = 25; console.log(name, age);.
+Day 3: Operators
+Practice Task: Write a program that calculates the area of a rectangle. Use the formula Area = length * width.
+Example: let length = 5; let width = 10; let area = length * width; console.log(area);.
+Day 4: Conditionals (if/else)
+Practice Task: Write a program that checks if a number is even or odd.
+Example: let num = 6; if (num % 2 === 0) { console.log('Even'); } else { console.log('Odd'); }.
+Day 5: Loops (for, while)
+Practice Task: Create a loop that prints numbers from 1 to 10.
+Example: for (let i = 1; i <= 10; i++) { console.log(i); }.
+Day 6: Functions
+Practice Task: Write a function that takes two numbers as arguments and returns their sum.
+Example: function add(a, b) { return a + b; } console.log(add(3, 4));.
+Day 7: Review & Practice
+Practice Task: Create a program that asks the user for their name and age, and prints a greeting.
+Example: let name = prompt('What is your name?'); let age = prompt('How old are you?'); console.log('Hello ' + name + ', you are ' + age + ' years old.');.
+Deeper into Functions, Arrays & Objects
+Day 8: Functions Continued
+Practice Task: Convert a regular function into an arrow function.
+Example: Convert function greet() { console.log('Hello!'); } into const greet = () => { console.log('Hello!'); };.
+Day 9: Arrays
+Practice Task: Create an array of numbers and write a loop to sum all the numbers.
+Example: let numbers = [1, 2, 3, 4, 5]; let sum = 0; for (let num of numbers) { sum += num; } console.log(sum);.
+Day 10: Objects
+Practice Task: Create an object for a book with properties like title, author, and pages, and access the properties.
+Example: let book = { title: 'JavaScript Basics', author: 'John Doe', pages: 200 }; console.log(book.title);.
+Day 11: Array Methods
+Practice Task: Use .map() to double every number in an array.
+Example: let numbers = [1, 2, 3, 4]; let doubled = numbers.map(num => num * 2); console.log(doubled);.
+Day 12: Object Methods and this Keyword
+Practice Task: Create an object with a method that prints a greeting using this.
+Example: let person = { name: 'Alice', greet() { console.log('Hello, ' + this.name); } }; person.greet();.
+Day 13: Introduction to ES6 Features
+Practice Task: Use destructuring to extract values from an array and object.
+Example (array): let [first, second] = [1, 2]; console.log(first, second);.
+Example (object): let person = { name: 'Alice', age: 25 }; let { name, age } = person; console.log(name, age);.
+Day 14: Review & Practice
+Practice Task: Create an object representing a car with properties like make, model, and year, and print them using a template literal.
+Example: let car = { make: 'Toyota', model: 'Corolla', year: 2020 }; console.log(The car is a ${car.year} ${car.make} ${car.model}.);.
+Advanced Concepts & DOM Manipulation
+Day 15: Introduction to the DOM
+Practice Task: Write a script that logs the text content of a webpage’s heading (<h1>).
+Example: console.log(document.querySelector('h1').textContent);.
+Day 16: Selecting DOM Elements
+Practice Task: Change the background color of a webpage using JavaScript.
+Example: document.body.style.backgroundColor = 'lightblue';.
+Day 17: Event Handling
+Practice Task: Create a button that changes the text of a paragraph when clicked.
+Example:
+javascript
+Copy
+Edit
+document.querySelector('button').addEventListener('click', () => {
+  document.querySelector('p').textContent = 'Text changed!';
+});
+Day 18: Modifying the DOM
+Practice Task: Create a new list item (<li>) and append it to an unordered list (<ul>).
+Example:
+javascript
+Copy
+Edit
+let newItem = document.createElement('li');
+newItem.textContent = 'New item';
+document.querySelector('ul').appendChild(newItem);
+Day 19: Advanced DOM Manipulation
+Practice Task: Create a form with inputs and append the values to the page when a button is clicked.
+Example: Create a form and add an event listener to append the inputs to a list.
+Day 20: Error Handling (try/catch)
+Practice Task: Write a function that divides two numbers and handles errors if division by zero occurs.
+Example:
+javascript
+Copy
+Edit
+function divide(a, b) {
+  try {
+    if (b === 0) throw 'Cannot divide by zero';
+    return a / b;
+  } catch (e) {
+    console.log(e);
+  }
+}
+console.log(divide(5, 0));
+Day 21: Review & Practice
+Practice Task: Build a simple to-do list using JavaScript and DOM manipulation, where users can add items and delete them.
+Final Concepts & Small Project
+Day 22: Introduction to Asynchronous JavaScript
+Practice Task: Create a function that waits for 2 seconds and then prints a message using setTimeout().
+Example:
+javascript
+Copy
+Edit
+setTimeout(() => {
+  console.log('2 seconds passed');
+}, 2000);
+Day 23: Working with Fetch API
+Practice Task: Make a fetch() request to a public API (like JSONPlaceholder) and log the response.
+Example:
+javascript
+Copy
+Edit
+fetch('https://jsonplaceholder.typicode.com/posts')
+  .then(response => response.json())
+  .then(data => console.log(data));
+Day 24: More on Promises and Async/Await
+Practice Task: Convert the above fetch() code into async/await syntax.
+Example:
+javascript
+Copy
+Edit
+async function fetchData() {
+  let response = await fetch('https://jsonplaceholder.typicode.com/posts');
+  let data = await response.json();
+  console.log(data);
+}
+fetchData();
+Day 25: Introduction to Local Storage
+Practice Task: Save and retrieve data from localStorage.
+Example:
+javascript
+Copy
+Edit
+localStorage.setItem('username', 'John');
+console.log(localStorage.getItem('username'));
+Day 26: Working with External Libraries (Optional)
+Practice Task: If you choose to, try using a library like jQuery to add interactivity, e.g., hide and show elements.
+Day 27: Build a Small Project (Part 1)
+Practice Task: Start building a small project like a weather app or a simple blog, integrating what you've learned (DOM, events, fetch API).
+Day 28: Build a Small Project (Part 2)
+Practice Task: Complete your project and test it, making sure everything works. Try deploying it on platforms like GitHub Pages.
