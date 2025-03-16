@@ -1,0 +1,375 @@
+<div class="apartment-page">
+    {% set slider = drupal_view('property_slider', 'block_1') %}
+    {% if slider is not empty %}
+        <div class="apartment-slider">
+            {{ slider }}
+        </div>
+    {% endif %}
+    <div class="apartment-details container">
+        <div class="apartment-inner-sec row">
+            <div class="left-sec col-lg-7 col-md-8">
+                {% if node.field_apartment_location.value or node.field_apartment_title.value is not empty %}
+                    <div class="apartment-title">
+                        {% if node.field_apartment_location.value is not empty %}
+                            <span class="location">{{ node.field_apartment_location.value }}</span>
+                        {% endif %}
+                        {% if node.field_apartment_title.value is not empty %}
+                            <h1>{{ node.field_apartment_title.value }}</h1>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                    <div class="property-rent-sec">
+                        {% if node.field_prix.value is not empty %}
+                            <div class="rent-price">
+                                <p>{{ node.field_prix.fielddefinition.label ~ ':' }}</p>
+                                <p>{{ node.field_prix.value }}</p>
+                            </div>
+                        {% endif %}
+                        {% if node.field_loyer.value is not empty %}
+                            <div class="rent-price">
+                                <p>{{ node.field_loyer.fielddefinition.label ~ ':' }}</p>
+                                <p>{{ node.field_loyer.value }}</p>
+                            </div>
+                        {% endif %}
+                        {% if node.field_charges.value is not empty %}
+                            <div class="rent-price">
+                                <p>{{ node.field_charges.fielddefinition.label ~ ':' }}</p>
+                                <p>{{ node.field_charges.value }}</p>
+                            </div>
+                        {% endif %}
+                        {% if node.field_total.value is not empty %}
+                            <div class="rent-price">
+                                <p>{{ node.field_total.fielddefinition.label ~ ':' }}</p>
+                                <p>{{ node.field_total.value }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                <div class="caracteristiques-sec">
+                    {% if node.field_caracteristiques_principal.value is not empty %}
+                        <h2>{{ node.field_caracteristiques_principal.value }}</h2>
+                    {% endif %}
+                    {% if node.field_ndeg_de_pieces.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3.40161" width="18" height="18" rx="1" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M7.69238 3.47852L7.69238 13.4999" stroke="#041E3D" stroke-linecap="round"/>
+                                <path d="M7.69276 21.4785L7.69276 17.5554L9.1543 15.6323" stroke="#041E3D" stroke-linecap="round"/>
+                                <path d="M12.5 10.5554L7.6923 10.5554" stroke="#041E3D" stroke-linecap="round"/>
+                                <path d="M20.9229 10.5555L16.3844 10.5555L14.3844 12.1709" stroke="#041E3D" stroke-linecap="round"/>
+                                </svg>
+                                {{ node.field_ndeg_de_pieces.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_ndeg_de_pieces.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_ndeg_de_chambres.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 5C4 4.44772 4.44772 4 5 4H19C19.5523 4 20 4.44772 20 5V19C20 19.5523 19.5523 20 19 20H5C4.44772 20 4 19.5523 4 19V5Z" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M6 6H11V8H6V6Z" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M13 6H18V8H13V6Z" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M4.5 10H19.5" stroke="#041E3D"/>
+                                </svg>
+                                {{ node.field_ndeg_de_chambres.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_ndeg_de_chambres.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_ndeg_de_salle_de_bains.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 11H21V16C21 18.2091 19.2091 20 17 20H7C4.79086 20 3 18.2091 3 16V11Z" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M5 11V5C5 3.89543 5.89543 3 7 3H8C9.10457 3 10 3.89543 10 5V5.28571" stroke="#041E3D" stroke-linecap="round"/>
+                                <path d="M10 5.5C8.89543 5.5 8 6.39543 8 7.5H12C12 6.39543 11.1046 5.5 10 5.5Z" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M8.5 20L8.5 21" stroke="#041E3D" stroke-linecap="round"/>
+                                <path d="M16.5 20L16.5 21" stroke="#041E3D" stroke-linecap="round"/>
+                                </svg>
+                                {{ node.field_ndeg_de_salle_de_bains.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_ndeg_de_salle_de_bains.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_surface_terrain.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H20V20H4V4Z" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2"/>
+                                </svg>
+                                {{ node.field_surface_terrain.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_surface_terrain.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_surface_jardin.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.832 17.625V21" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5.2125 16.0111L4.81782 15.7041H4.81782L5.2125 16.0111ZM10.0822 9.75V9.25C9.92792 9.25 9.78226 9.32124 9.68754 9.44303L10.0822 9.75ZM18.4519 16.0111L18.0572 16.318V16.318L18.4519 16.0111ZM13.5822 9.75L13.9769 9.44303C13.8822 9.32124 13.7365 9.25 13.5822 9.25V9.75ZM5.60718 16.318L10.4769 10.057L9.68754 9.44303L4.81782 15.7041L5.60718 16.318ZM6.00185 17.125C5.58578 17.125 5.35173 16.6465 5.60718 16.318L4.81782 15.7041C4.05149 16.6894 4.75363 18.125 6.00185 18.125V17.125ZM17.6626 17.125H6.00185V18.125H17.6626V17.125ZM18.0572 16.318C18.3127 16.6465 18.0786 17.125 17.6626 17.125V18.125C18.9108 18.125 19.6129 16.6894 18.8466 15.7041L18.0572 16.318ZM13.1875 10.057L18.0572 16.318L18.8466 15.7041L13.9769 9.44303L13.1875 10.057ZM13.5822 9.25H10.0822V10.25H13.5822V9.25Z" fill="#041E3D"/>
+                                <path d="M6.78914 8.04289L11.832 3L16.8749 8.04289C17.5049 8.67286 17.0587 9.75 16.1678 9.75H7.49624C6.60534 9.75 6.15917 8.67286 6.78914 8.04289Z" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ node.field_surface_jardin.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_surface_jardin.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_surface_habitable.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H20V20H4V4Z" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M6 18V6H17.5V18H6Z" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2"/>
+                                </svg>
+                                {{ node.field_surface_habitable.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_surface_habitable.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_surface_utile.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 4H20V20H4V4Z" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M6 18V6H17.5V18H6Z" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2"/>
+                                </svg>
+                                {{ node.field_surface_utile.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_surface_utile.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_volume.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.5 5.40917L12 1.75L4.5 5.40917M19.5 5.40917L12 9.06834M19.5 5.40917V14.5571L12 18.2163M12 9.06834L4.5 5.40917M12 9.06834V18.2163M4.5 5.40917V14.5571L12 18.2163" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M9.23645 18.7237L11.0261 21.1829L8.50073 22.5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10.5 21C7 21 2 18.9853 2 16.5C2 15.7816 2.37412 15.1025 3.03947 14.5M21.2185 14.753C21.7218 15.2902 22 15.8805 22 16.5C22 18.7268 18.4058 20.5758 13.6856 20.9363" stroke="#041E3D" stroke-linecap="round"/>
+                                </svg>
+                                {{ node.field_volume.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_volume.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_disponibilite.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 9H20V19C20 19.5523 19.5523 20 19 20H5C4.44772 20 4 19.5523 4 19V9Z" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M4 9V6C4 5.44772 4.44772 5 5 5H19C19.5523 5 20 5.44772 20 6V9" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7.5 3L7.5 5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17 3L17 5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7.5 14.5L10.5 17.5L16 11.5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ node.field_disponibilite.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_disponibilite.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_annee_de_construction.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 9H20V19C20 19.5523 19.5523 20 19 20H5C4.44772 20 4 19.5523 4 19V9Z" stroke="#041E3D" stroke-linejoin="round"/>
+                                <path d="M4 9V6C4 5.44772 4.44772 5 5 5H19C19.5523 5 20 5.44772 20 6V9" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7.5 3L7.5 5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17 3L17 5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ node.field_annee_de_construction.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_annee_de_construction.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_annee_de_renovation.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 9H4V19C4 19.5523 4.44772 20 5 20H19C19.5523 20 20 19.5523 20 19V9H13.5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 9V6C4 5.44772 4.44772 5 5 5H19C19.5523 5 20 5.44772 20 6V9" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7.5 3L7.5 5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17 3L17 5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.0055 13.6271L11.5778 10.7791C11.9598 10.5434 11.8643 9.04378 11.4711 8.57352C10.4689 7.37491 9.2785 7.55135 8.80859 7.78941L9.80981 9.06742C10.017 9.33183 9.96232 9.7155 9.6896 9.91158C9.43585 10.094 9.08392 10.0473 8.88654 9.805L7.83328 8.51198C7.56 9.00372 7.19084 10.1994 7.90043 11.048C8.61002 11.8967 9.79871 11.8145 10.3044 11.6674L12.7267 14.5756C12.4469 15.0262 12.0832 16.1616 12.8659 17.0978C13.6486 18.0339 14.8866 17.9292 15.4077 17.7598L14.3794 16.4804C14.1798 16.2322 14.2101 15.8711 14.4481 15.6595C14.6978 15.4375 15.081 15.4634 15.2985 15.717L16.3509 16.9433C16.6583 16.485 17.0866 15.3452 16.3404 14.4528C15.5943 13.5604 14.4729 13.5305 14.0055 13.6271Z" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ node.field_annee_de_renovation.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_annee_de_renovation.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_etage.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 21V15H9.48649V9H14.973V3H21" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.1813 12.2174L17.9823 12.2174M17.9823 12.2174L17.9823 17.0184M17.9823 12.2174L12.4955 17.8928" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ node.field_etage.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_etage.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_type_de_chauffage.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.9191 5.16333C17.3764 5.82135 16.291 7.73467 16.291 10.1238C16.291 13.1102 18.9492 13.4645 18.9492 16.4003C18.9492 18.7489 17.7087 20.4834 17.0884 21.0571" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12.2982 3C11.7102 3.65802 10.5343 5.57134 10.5343 7.96046C10.5343 10.9469 13.4141 11.3012 13.4141 14.237C13.4141 16.5856 12.0702 18.3201 11.3982 18.8937" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6.62813 5.16309C6.0854 5.82111 4.99995 7.73443 4.99995 10.1235C4.99995 13.1099 7.6582 13.4643 7.6582 16.4C7.6582 18.7487 6.41769 20.4831 5.79743 21.0568" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ node.field_type_de_chauffage.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_type_de_chauffage.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if node.field_distribution_chauffage.value is not empty %}
+                        <div class="caracteristiques-inner">
+                            <span class="characteristics-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5.125" y="8.25" width="3.75" height="13.75" rx="1.875" stroke="#041E3D"/>
+                                <rect x="8.875" y="8.25" width="3.75" height="13.75" rx="1.875" stroke="#041E3D"/>
+                                <rect x="12.625" y="8.25" width="3.75" height="13.75" rx="1.875" stroke="#041E3D"/>
+                                <rect x="16.375" y="8.25" width="3.75" height="13.75" rx="1.875" stroke="#041E3D"/>
+                                <path d="M5.125 10.75H3.25V14.5H5.125" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3.25 12.625H2" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20.125 11.375H22V7" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.31877 2C9.17079 2.16561 8.87485 2.64713 8.87485 3.24841C8.87485 4 9.59961 4.08917 9.59961 4.82803C9.59961 5.41911 9.26139 5.85563 9.09228 6" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16.4438 2C16.2958 2.16561 15.9999 2.64713 15.9999 3.24841C15.9999 4 16.7246 4.08917 16.7246 4.82803C16.7246 5.41911 16.3864 5.85563 16.2173 6" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12.7192 1C12.5712 1.16561 12.2752 1.64713 12.2752 2.24841C12.2752 3 13 3.08917 13 3.82803C13 4.41911 12.6618 4.85563 12.4927 5" stroke="#041E3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ node.field_distribution_chauffage.fielddefinition.label }}
+                            </span>
+                            <span class="characteristics-value">
+                                {{ node.field_distribution_chauffage.value }}
+                            </span>
+                        </div>
+                    {% endif %}
+                </div>
+                {% if node.field_description_title.value or node.field_apartment_description.value is not empty %}
+                    <div class="apartment-des">
+                        <h2>{{ node.field_description_title.value }}</h2>
+                        {{ node.field_apartment_description.value|raw }}
+                    </div>
+                {% endif %}
+                {% if node.field_commodites_para or node.field_commodites_sec.value is not empty %}
+                    <div class="commodités-sec">
+                        {% if node.field_commodites_sec.value is not empty %}
+                            <h2>{{ node.field_commodites_sec.value }}</h2>
+                        {% endif %}
+                        <div class="commo-inner">
+                            {% for key, item in node.field_commodites_para %}
+                                <p>{{ item.entity.field_commodites_value.value }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="right-sec col-lg-4 col-md-4">
+                <div class="contact-form">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#contactFormModal">{{ 'FORMULAIRE DE CONTACT'|t }}</button>
+                    <!-- Modal -->
+                    <div class="modal" id="contactFormModal">
+                        <div class="modal-dialog modal-lg">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {% if node.field_apartment_location.value is not empty %}
+                                        <span class="location">{{ node.field_apartment_location.value }}</span>
+                                    {% endif %}
+                                    {% if node.field_loyer.value is not empty %}
+                                        <h5>{{ node.field_loyer.value|replace({' / mois':' '}) }}</h5>
+                                    {% endif %}
+                                    {% if node.field_type_of_property.value is not empty %}
+                                        <span>{{ node.field_type_of_property.value }}</span>
+                                    {% endif %}
+                                    {{ drupal_entity('webform', 'derham_contact_form') }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-contact-detail">
+                    {% if node.field_contact_title.value is not empty %}
+                        <div class="contact-heading">{{ node.field_contact_title.value }}</div>
+                    {% endif %}
+                    <div class="contact-details">
+                        {% set contact_img = node.field_contact_person_image.entity.field_media_image.0.entity.uri.value %}
+                        {% if contact_img is not empty %}
+                            <div class="contact-img">
+                                {% set contact_image = {
+                                    '#theme': 'responsive_image',
+                                    '#responsive_image_style_id': 'contact_image_style',
+                                    '#uri':        contact_img,
+                                    '#attributes': { class:'' }
+                                } %}
+                                {{ contact_image }}
+                            </div>
+                        {% endif %}
+                        {% if node.field_contact_person_name.value is not empty %}
+                            <h5>{{ node.field_contact_person_name.value }}</h5>
+                        {% endif %}
+                        {% if node.field_contact_number.value is not empty %}
+                            <div class="contact-tel">
+                                <a href="tel:{{ node.field_contact_number.value }}">{{ node.field_contact_number.value }}</a>
+                            </div>
+                        {% endif %}
+                        {% if node.field_contact_email.value is not empty %}
+                            <div class="contact-mail">
+                                <a href="mailto:{{ node.field_contact_email.value }}">{{ node.field_contact_email.value }}</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="rent-stpes-wrapper">
+                        {% if node.field_rent_step_title.value is not empty %}
+                            <h5>{{ node.field_rent_step_title.value }}</h5>
+                        {% endif %}
+                        {% if node.field_rent_step_1.value is not empty %}
+                            <div class="rent-stpe">{{ node.field_rent_step_1.value }}</div>
+                        {% endif %}
+                        {% if node.field_rent_step_2.value is not empty %}
+                            <div class="rent-stpe">{{ node.field_rent_step_2.value }}</div>
+                        {% endif %}
+                        {% if node.field_rent_step_3.value is not empty %}
+                            <div class="rent-stpe">{{ node.field_rent_step_3.value }}</div>
+                        {% endif %}
+                    </div>
+                    {% if node.field_property_doc is not empty %}
+                        <div class="property-doc">
+                            <a href="{{ file_url(node.field_property_doc.entity.field_media_document.0.entity.uri.value) }}" target="_blank">{{ node.field_property_doc.fielddefinition.label }}</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

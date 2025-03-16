@@ -1,0 +1,116 @@
+<div class="home-page">
+    {{ drupal_view('homepage_banner', 'block_1')}}
+    <div class="">
+        {% if node.field_header_title.value is not empty %}
+            <h1>{{ node.field_header_title.value }}</h1>
+        {% endif %}
+        {% if node.field_header_subtitle.value is not empty %}
+            <span>{{ node.field_header_subtitle.value }}</span>
+        {% endif %}
+        <video src=""></video>
+    </div>
+    <div class="promotion-sec container">
+        <div class="row">
+            <div class="col-7">
+                {% if node.field_title.value is not empty %}
+                    <h1>{{ node.field_title.value }}</h1>
+                {% endif %}
+            </div>
+            <div class="col-5">
+                {% if node.field_description.value is not empty %}
+                    {{ node.field_description.value|raw }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="promotion-slider">
+            {{ drupal_view('promotion_slider', 'block_1')}}
+        </div>
+    </div>
+    <div class="Estimer-sec container">
+        {% if node.field_estimer_title.value is not empty %}
+            <h1>{{ node.field_estimer_title.value }}</h1>
+        {% endif %}
+        {% if node.field_estimer_description.value is not empty %}
+            {{ node.field_estimer_description.value|raw }}
+        {% endif %}
+        {% if node.field_estimer_en_lign is not empty %}
+            <a href="{{ node.field_estimer_en_lign.uri }}">{{ node.field_estimer_en_lign.title }}</a>
+        {% endif %}
+        {% if node.field_estimer_avec_un_expert is not empty %}
+            <a href="{{ node.field_estimer_avec_un_expert.uri }}">{{ node.field_estimer_avec_un_expert.title }}</a>
+        {% endif %}
+    </div>
+    {% set apartment_listing = drupal_view('la_selection_du_moment_section', 'block_1') %}
+    {% if apartment_listing is not empty %}
+        <div class="apartments-listing-card container">
+            {{ apartment_listing }}
+        </div>
+    {% endif %}
+    <div class="valuation-sec row">
+        {% if node.field_left_image.entity.field_media_image.0.entity.uri.value is not empty %}
+            <div class="valuation-img col-lg-6">
+                {% set valuation_img = {
+                    '#theme': 'responsive_image',
+                    '#responsive_image_style_id': 'valuation_image_style',
+                    '#uri':        node.field_left_image.entity.field_media_image.0.entity.uri.value,
+                    '#attributes': { class:'' }
+                } %}
+                {{ valuation_img }}
+            </div>
+        {% endif %}
+        {% if node.field_valuation_title.value is not empty %}
+            <div class="valuation-text col-lg-6">
+                <span>{{ node.field_valuation_subtitle.value }}</span>
+                <h2>{{ node.field_valuation_title.value }}</h2>
+                {{ node.field_valuation_des.value|raw }}
+                <a href="{{ node.field_valuation_link.uri }}">{{ node.field_valuation_link.title }}</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="exprtise-wrapper">
+        <div class="exprtise-sec container">
+            {% if node.field_notre_expertise_subtitle.value is not empty %}
+                {{ node.field_notre_expertise_subtitle.value }}
+            {% endif %}
+            {% if node.field_notre_expertise_title.value is not empty %}
+                <h2>{{ node.field_notre_expertise_title.value }}</h2>
+            {% endif %}
+            {% if node.field_notre_expertise_des.value is not empty %}
+                <div class="notre-text-1">
+                    {{ node.field_notre_expertise_des.value|raw }}
+                </div>
+            {% endif %}
+            {% if content.field_notre_expertise_paragraph|render is not empty %}
+                <div class="expertise-inner-wrap row">
+                    {{ content.field_notre_expertise_paragraph|render }}
+                </div>
+            {% endif %}
+            {% if node.field_notre_expertise_des_2.value is not empty %}
+                <div class="notre-text-2">
+                    {{ node.field_notre_expertise_des_2.value|raw }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="innovation-wrapper">
+        {% if node.field_innovation_image.entity.field_media_image.0.entity.uri.value is not empty %}
+            <div class="innovation-img">
+                {% set innovation_img = {
+                    '#theme': 'responsive_image',
+                    '#responsive_image_style_id': 'innovation_image_style',
+                    '#uri':        node.field_innovation_image.entity.field_media_image.0.entity.uri.value,
+                    '#attributes': { class:'' }
+                } %}
+                {{ innovation_img }}
+            </div>
+        {% endif %}
+        {% if node.field_innovation_subtitle.value or node.field_innovation_title.value or node.field_innovation_des.value is not empty %}
+            <div class="innovation-text">
+                {{ node.field_innovation_subtitle.value }}
+                <h2>{{ node.field_innovation_title.value }}</h2>
+                {{ node.field_innovation_des.value|raw }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{{ drupal_entity('block_content',2) }}
